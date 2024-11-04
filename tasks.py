@@ -13,8 +13,10 @@ import numpy
 # Your code here:
 # -----------------------------------------------
 
-def step
-
+def step(number):
+    if number > 0:
+        return 1
+    else: return -1
 
 # -----------------------------------------------
 
@@ -28,11 +30,12 @@ def step
 
 # Your code here:
 # -----------------------------------------------
-def ReLu
 
+def ReLu(array, cutoff = 0):
+    array[array < cutoff] = cutoff
+    return array
 
 # -----------------------------------------------
-
 
 # Task 3:
 # Instructions:
@@ -44,7 +47,10 @@ def ReLu
 # Your code here:
 # -----------------------------------------------
 
-def neural_net_layer
-
-
+def neural_net_layer(array_2d, array):
+    if array_2d.shape[1] == array.shape[0]:
+        multip_matrix = numpy.dot(array_2d, array)
+        return ReLu(multip_matrix)
+    else: print("Number of columns in first array is not equal to nr of rows in second array")
+    
 # ------------------------------------------
